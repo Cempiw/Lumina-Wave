@@ -1,26 +1,43 @@
-// Function to switch between main pages
 function navigateTo(pageId) {
     // Hide all pages
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-
-    // Show selected page
-    document.getElementById(pageId).classList.add('active');
-
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Show target page
+    const target = document.getElementById(pageId);
+    target.classList.add('active');
+    
     // Scroll to top
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo(0, 0);
 }
 
-// Function to switch sub-sections in Page 3
-function showSubSection(sectionId) {
-    const subSections = document.querySelectorAll('.sub-section');
-    subSections.forEach(sec => sec.classList.remove('active'));
-
-    document.getElementById(sectionId).classList.add('active');
+function scrollToSection(sectionId) {
+    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Quiz logic
-let currentQuestion = 1;
+function checkAnswer(btn, correct) {
+    const text = btn.innerText;
+    if(text.includes('Bent pencil')) {
+        btn.style.backgroundColor = '#97d700'; // Green for correct
+        alert("Correct! Refraction makes the pencil look bent! [cite: 1, 4]");
+    } else {
+        btn.style.backgroundColor = '#f091b2'; // Pink for wrong
+        alert("Try again! Remember, refraction is about light bending.");
+    }
+}
+function navigateTo(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo(0,0);
+}
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+function answer(qNum, isCorrect) {
+   let currentQuestion = 1;
 let score = 0;
 const totalQuestions = 5;
 
@@ -74,3 +91,7 @@ function resetQuiz() {
         btn.style.backgroundColor = "#fdfdfd";
     });
 }
+    }
+}
+// Initial Animation for Spongebob vibes
+console.log("Welcome to Lumina Wave! I'm ready! I'm ready!");
