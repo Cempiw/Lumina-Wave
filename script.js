@@ -20,22 +20,57 @@ function showSubSection(sectionId) {
 }
 
 // Quiz logic
-function checkQuiz(button, isCorrect) {
-    const feedback = document.getElementById('quiz-feedback');
-    const allButtons = document.querySelectorAll('.quiz-options button');
-    
-    // Disable all buttons after choice
-    allButtons.forEach(btn => btn.disabled = true);
+let currentQuestion = 1;
+let score = 0;
+const totalQuestions = 5;
 
-    if (isCorrect) {
-        button.style.backgroundColor = "#4caf50";
-        button.style.color = "white";
-        feedback.innerText = "Correct! The retina is the light-sensitive inner surface of the eye.";
-        feedback.style.color = "#4caf50";
+function checkAnswer(qNum, correctLetter, btn) {
+    // Basic logic to get selected option letter
+    const options = ["A", "B", "C", "D"];
+    const btnIndex = Array.from(btn.parentNode.children).indexOf(btn);
+    const selectedLetter = options[btnIndex];
+
+    if (selectedLetter === correctLetter) {
+        btn.style.backgroundColor = "#97d700"; // Green
+        score++;
     } else {
-        button.style.backgroundColor = "#f44336";
-        button.style.color = "white";
-        feedback.innerText = "Incorrect. The correct answer is B. Retina.";
-        feedback.style.color = "#f44336";
+        btn.style.backgroundColor = "#f091b2"; // Pink
     }
+
+    // Disable all buttons in this question
+    const buttons = btn.parentNode.querySelectorAll('button');
+    buttons.forEach(b => b.disabled = true);
+
+    // Wait and move to next
+    setTimeout(() => {
+        document.getElementById(`q${qNum}`).classList.remove('active-q');
+        if (qNum < totalQuestions) {
+            currentQuestion++;
+            document.getElementById(`q${currentQuestion}`).classList.add('active-q');
+        } else {
+            showResult();
+        }
+    }, 1000);
+}
+
+function showResult() {
+    const resultDiv = document.getElementById('quiz-result');
+    resultDiv.style.display = 'block';
+    document.getElementById('score-text').innerText = `You scored ${score} out of ${totalQuestions}!`;
+}
+
+function resetQuiz() {
+    score = 0;
+    currentQuestion = 1;
+    document.getElementById('quiz-result').style.display = 'none';
+    
+    // Reset all cards
+    document.querySelectorAll('.q-card').forEach(card => card.classList.remove('active-q'));
+    document.getElementById('q1').classList.add('active-q');
+    
+    // Reset all buttons
+    document.querySelectorAll('.opt-grid button').forEach(btn => {
+        btn.disabled = false;
+        btn.style.backgroundColor = "#fdfdfd";
+    });
 }
