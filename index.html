@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Wave - The Benefits of Waves and Light</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Lumina Wave</div>
+        <div class="nav-links">
+            <button onclick="navigateTo('page1')">Home</button>
+            <button onclick="navigateTo('page2')">Menu</button>
+        </div>
+    </nav>
+
+    <section id="page1" class="page active">
+        <div class="hero">
+            <h1>The Benefits of Waves and Light for Humans</h1>
+            <div class="intro-card">
+                <p>Have you ever thought about how much light and waves actually do for us? From the sunlight that wakes you up in the morning to the Wi-Fi that keeps you connected — they're quietly working everywhere, every single day.</p>
+                <p>On this website, we'll break down how waves and light benefit human life in the most interesting ways possible. Easy to read, fun to explore. Let's dive in!</p>
+                <button class="btn-start" onclick="navigateTo('page2')">START EXPLORING</button>
+            </div>
+        </div>
+
+        <div class="about-teacher">
+            <h2>About Teacher</h2>
+            <div class="teacher-content">
+                <div class="teacher-text">
+                    <p>Hi! I am <strong>Devi Salsabila</strong>, an undergraduate student majoring in International Program on Science Education UPI. With my strong interest in science, I develop this website to help middle school students understand about <strong>The Benefits of Waves and Light for Humans</strong>.</p>
+                    <p>This website provides students with explanations, activities, and small quiz that support them in building their conceptual understanding. I hope this website can become a helpful learning companion for students and a useful resource for teachers. Thank you for visiting, and I hope you enjoy learning science!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page2" class="page">
+        <h1 class="page-title">Table of Contents</h1>
+        <div class="toc-container">
+            <div class="toc-card" onclick="navigateTo('page3')">
+                <h3>📚 Matery & Simulation</h3>
+                <p>Learn about waves, light properties, and eye anatomy.</p>
+            </div>
+            <div class="toc-card" onclick="navigateTo('page4')">
+                <h3>🔬 Experiment</h3>
+                <p>Virtual Lab: Understanding Lens Power (Diopters).</p>
+            </div>
+            <div class="toc-card" onclick="navigateTo('page5')">
+                <h3>🌍 SDGs</h3>
+                <p>How light & waves relate to Global Goals.</p>
+            </div>
+            <div class="toc-card" onclick="navigateTo('page6')">
+                <h3>📝 Small Quiz</h3>
+                <p>Test your knowledge with interactive questions.</p>
+            </div>
+            <div class="toc-card" onclick="navigateTo('page7')">
+                <h3>🏁 Summary</h3>
+                <p>Key takeaways from this module.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="page3" class="page">
+        <button class="back-toc" onclick="navigateTo('page2')">← Back to Menu</button>
+        <h1 class="page-title">Learning Material</h1>
+        
+        <div class="materi-tabs">
+            <button onclick="showSubSection('sec-waves')">Waves</button>
+            <button onclick="showSubSection('sec-light')">Light Properties</button>
+            <button onclick="showSubSection('sec-eye')">The Human Eye</button>
+            <button onclick="showSubSection('sec-phet')">Simulation</button>
+        </div>
+
+        <div id="sec-waves" class="sub-section active">
+            <h2>1. Waves</h2>
+            <p>A wave is a vibration that propagates through a medium or space, transferring energy without transferring matter.</p>
+            <ul>
+                <li><strong>Transverse Waves:</strong> Vibration is perpendicular to direction (e.g., Light, Water).</li>
+                <li><strong>Longitudinal Waves:</strong> Vibration is parallel to direction (e.g., Sound).</li>
+            </ul>
+        </div>
+
+        <div id="sec-light" class="sub-section">
+            <h2>2. Properties of Light</h2>
+            <p>Light is an electromagnetic wave that travels at 300,000 km/s. It can:</p>
+            <ul>
+                <li><strong>Reflect:</strong> Bouncing off surfaces (Mirrors).</li>
+                <li><strong>Refract:</strong> Bending when entering different media (Water, Lenses).</li>
+            </ul>
+        </div>
+
+        <div id="sec-eye" class="sub-section">
+            <h2>3. How We See</h2>
+            <p>The path of light: <strong>Cornea → Pupil → Lens → Retina → Optic Nerve → Brain</strong>.</p>
+            <p>Lenses correct vision: Convex (+) for Hyperopia, Concave (-) for Myopia.</p>
+        </div>
+
+        <div id="sec-phet" class="sub-section">
+            <h2>Interactive Simulation</h2>
+            <iframe src="https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_en.html" width="100%" height="500" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="page4" class="page">
+        <button class="back-toc" onclick="navigateTo('page2')">← Back to Menu</button>
+        <h1 class="page-title">Worksheet: Lens Power</h1>
+        <div class="worksheet-box">
+            <h3>Investigation: Understanding Diopters</h3>
+            <p><strong>Formula:</strong> Power (D) = 1 / focal length (m)</p>
+            <div class="experiment-steps">
+                <ol>
+                    <li>Use a lens and focus light onto a screen.</li>
+                    <li>Measure the <strong>focal length (f)</strong> in meters.</li>
+                    <li>Calculate <strong>D = 1/f</strong>.</li>
+                </ol>
+            </div>
+            <table class="exp-table">
+                <tr><th>Lens Type</th><th>Focal Length (m)</th><th>Diopter (D)</th></tr>
+                <tr><td>Convex (A)</td><td>0.2m</td><td>+5.0 D</td></tr>
+                <tr><td>Concave (B)</td><td>0.5m</td><td>-2.0 D</td></tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="page5" class="page">
+        <button class="back-toc" onclick="navigateTo('page2')">← Back to Menu</button>
+        <h1 class="page-title">Waves & Light for SDGs</h1>
+        <div class="sdg-container">
+            <div class="sdg-item">
+                <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-03.jpg" alt="SDG 3">
+                <p><strong>SDG 3: Good Health.</strong> X-rays and Ultrasounds use waves for medical diagnosis.</p>
+            </div>
+            <div class="sdg-item">
+                <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-07.jpg" alt="SDG 7">
+                <p><strong>SDG 7: Clean Energy.</strong> Solar panels capture light energy to power the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="page6" class="page">
+        <button class="back-toc" onclick="navigateTo('page2')">← Back to Menu</button>
+        <h1 class="page-title">Small Quiz</h1>
+        <div class="quiz-box">
+            <p id="question">1. Which part of the eye acts as the screen where images are formed?</p>
+            <div class="quiz-options">
+                <button onclick="checkQuiz(this, false)">A. Cornea</button>
+                <button onclick="checkQuiz(this, true)">B. Retina</button>
+                <button onclick="checkQuiz(this, false)">C. Pupil</button>
+            </div>
+            <p id="quiz-feedback"></p>
+        </div>
+    </section>
+
+    <section id="page7" class="page">
+        <button class="back-toc" onclick="navigateTo('page2')">← Back to Menu</button>
+        <h1 class="page-title">Summary</h1>
+        <div class="summary-content">
+            <div class="summary-card">
+                <ul>
+                    <li>Waves transfer <strong>energy</strong>, not matter.</li>
+                    <li>Light travels in a <strong>straight line</strong> and can bend (refract).</li>
+                    <li><strong>$D = 1/f$</strong> is the key to creating corrective glasses.</li>
+                    <li>Waves and Light are essential for achieving <strong>Global SDGs</strong>.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
