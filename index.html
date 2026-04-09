@@ -3,359 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumina Wave | Fun Science Learning</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            --accent-color: #ff9a9e;
-            --glass: rgba(255, 255, 255, 0.9);
-            --text-dark: #2d3436;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background: #f0f2f5; color: var(--text-dark); overflow-x: hidden; }
-
-        /* Navigation */
-        nav {
-            background: var(--primary-gradient);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .logo { color: white; font-weight: 700; font-size: 1.5rem; letter-spacing: 1px; }
-
-        /* Global Layout */
-        .page { display: none; padding: 100px 8% 50px; min-height: 100vh; animation: fadeIn 0.8s ease; }
-        .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Button Styling */
-        .btn {
-            background: var(--secondary-gradient);
-            color: white; border: none; padding: 12px 30px;
-            border-radius: 30px; cursor: pointer; font-weight: 600;
-            transition: 0.3s; text-transform: uppercase;
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        /* Page 1: Hero & About */
-        .hero-section { text-align: center; padding: 60px 20px; background: white; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .hero-section h1 { font-size: 3rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-        .intro-box { font-size: 1.1rem; color: #636e72; max-width: 800px; margin: 0 auto 30px; line-height: 1.8; }
-        .about-card { margin-top: 50px; padding: 40px; background: var(--secondary-gradient); color: white; border-radius: 20px; text-align: left; }
-
-        /* Page 2: Table of Content */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card {
-            background: white; padding: 40px 20px; border-radius: 20px; text-align: center;
-            cursor: pointer; transition: 0.4s; border-bottom: 8px solid #764ba2;
-        }
-        .card:hover { transform: translateY(-10px); background: #f9f9f9; }
-        .card i { font-size: 3rem; margin-bottom: 15px; display: block; }
-
-        /* Page 3: Materi */
-        .materi-nav { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .tab-content { background: white; padding: 40px; border-radius: 20px; line-height: 1.8; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .tab-pane { display: none; }
-        .tab-pane.active { display: block; }
-        .formula-box { background: #f1f2f6; padding: 15px; border-left: 5px solid #6c5ce7; margin: 15px 0; font-family: monospace; font-size: 1.2rem; }
-
-        /* Page 5: SDGs */
-        .sdg-detail { display: flex; gap: 20px; margin-bottom: 30px; align-items: center; background: white; padding: 20px; border-radius: 15px; }
-        .sdg-detail img { width: 120px; height: 120px; border-radius: 10px; }
-
-        /* Quiz Styling */
-        .quiz-container { background: white; padding: 40px; border-radius: 20px; max-width: 800px; margin: 0 auto; }
-        .question { font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; }
-        .options { display: flex; flex-direction: column; gap: 10px; }
-        .option-btn { padding: 15px; border: 2px solid #ddd; border-radius: 10px; background: none; cursor: pointer; text-align: left; transition: 0.3s; font-size: 1rem; }
-        .option-btn:hover { border-color: #6c5ce7; background: #f8f7ff; }
-        .correct { background: #55efc4 !important; border-color: #00b894 !important; }
-        .wrong { background: #fab1a0 !important; border-color: #d63031 !important; }
-
-        /* Table */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 15px; border: 1px solid #ddd; text-align: left; }
-        th { background: #6c5ce7; color: white; }
-
-        .back-link { cursor: pointer; color: #6c5ce7; font-weight: 600; margin-bottom: 20px; display: inline-block; }
-    </style>
+    <title>Lumina Wave - Science Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">LUMINA WAVE</div>
-        <button class="btn" style="background: rgba(255,255,255,0.2)" onclick="navigateTo('page2')">Menu</button>
-    </nav>
+    <div class="web-name">Lumina Wave</div>
 
     <section id="page1" class="page active">
-        <div class="hero-section">
-            <h1>The Benefits of Waves and Light for Humans</h1>
-            <div class="intro-box">
+        <div class="content-box central">
+            <h1 class="main-title">The Benefits of Waves and Light for Humans</h1>
+            
+            <div class="intro-section">
                 <p>Have you ever thought about how much light and waves actually do for us? From the sunlight that wakes you up in the morning to the Wi-Fi that keeps you connected — they're quietly working everywhere, every single day.</p>
                 <p>On this website, we'll break down how waves and light benefit human life in the most interesting ways possible. Easy to read, fun to explore. Let's dive in!</p>
+                <button class="btn-start" onclick="navigateTo('page2')">START EXPLORING! ➔</button>
             </div>
-            <button class="btn" onclick="navigateTo('page2')">Get Started</button>
-        </div>
 
-        <div class="about-card">
-            <h2>About Teacher</h2>
-            <p style="margin-top: 15px;">Hi! I am <b>Devi Salsabila</b>, an undergraduate student majoring in International Program on Science Education UPI. With my strong interest in science, I develop this website to help middle school students understand about Chemical Change and Rate of Reaction - The Benefits of Waves and Light for Humans.</p>
-            <p style="margin-top: 10px;">This website provides students with explanations, activities, and small quiz that support them in building their conceptual understanding. I hope this website can become a helpful learning companion for students and a useful resource for teachers who are interested in innovative science learning. Thank you for visiting, and I hope you enjoy learning science!</p>
+            <div class="about-teacher">
+                <h2>About Teacher</h2>
+                <div class="teacher-flex">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Devi" alt="Teacher Avatar" class="avatar">
+                    <p>Hi! I am <strong>Devi Salsabila</strong>, an undergraduate student majoring in International Program on Science Education UPI. With my strong interest in science, I develop this website to help middle school students understand <strong>The Benefits of Waves and Light for Humans</strong>. This website provides explanations, activities, and small quiz that support conceptual understanding. I hope this becomes a helpful companion for students and a useful resource for teachers. Thank you for visiting!</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="page2" class="page">
-        <h1 style="text-align: center; margin-bottom: 30px;">Learning Journey</h1>
-        <div class="grid-container">
-            <div class="card" onclick="navigateTo('page3')">
-                <span>📚</span>
-                <h3>Materi & Simulation</h3>
-                <p>Deep dive into Waves and Optics</p>
-            </div>
-            <div class="card" onclick="navigateTo('page4')">
-                <span>🔬</span>
-                <h3>Experiment</h3>
-                <p>Interactive Lens Investigation</p>
-            </div>
-            <div class="card" onclick="navigateTo('page5')">
-                <span>🌍</span>
-                <h3>SDGs Connection</h3>
-                <p>Science for a Better World</p>
-            </div>
-            <div class="card" onclick="navigateTo('page6')">
-                <span>📝</span>
-                <h3>Small Quiz</h3>
-                <p>Test your knowledge!</p>
-            </div>
-            <div class="card" onclick="navigateTo('page7')">
-                <span>🏁</span>
-                <h3>Summary</h3>
-                <p>Key takeaways</p>
+        <div class="content-box">
+            <h1>Marine Menu</h1>
+            <div class="menu-grid">
+                <button class="menu-item" onclick="navigateTo('page3')">🌊 Material & Simulation</button>
+                <button class="menu-item" onclick="navigateTo('page4')">🧪 Experiment Worksheet</button>
+                <button class="menu-item" onclick="navigateTo('page5')">🌍 SDGs Connection</button>
+                <button class="menu-item" onclick="navigateTo('page6')">🐙 Small Quiz</button>
+                <button class="menu-item" onclick="navigateTo('page7')">📝 Summary</button>
             </div>
         </div>
     </section>
 
-    <section id="page3" class="page">
-        <span class="back-link" onclick="navigateTo('page2')">← Back to Table of Contents</span>
-        <div class="materi-nav">
-            <button class="btn" onclick="openTab('waves')">Waves</button>
-            <button class="btn" onclick="openTab('light')">Light Properties</button>
-            <button class="btn" onclick="openTab('eye')">Human Eye</button>
-            <button class="btn" onclick="openTab('sim')">Simulation</button>
+   <section id="page3" class="page">
+    <div class="content-box">
+        <button class="btn-back" onclick="navigateTo('page2')">⇠ Back to Menu</button>
+        <h1>Waves & Light Encyclopedia</h1>
+        
+        <div class="sub-nav">
+            <button onclick="scrollToSection('sec-vibration')">Vibration & Waves</button>
+            <button onclick="scrollToSection('sec-sound')">Sound</button>
+            <button onclick="scrollToSection('sec-light')">Light Properties</button>
+            <button onclick="scrollToSection('sec-eye')">The Eye & Lenses</button>
         </div>
 
-        <div class="tab-content">
-            <div id="waves" class="tab-pane active">
-                <h2>Understanding Waves</h2>
-                <p>A wave is a vibration that propagates through a medium or space. Waves transfer <b>energy</b>, not matter.</p>
-                <div class="formula-box">f = 1 / T (Frequency) <br> v = λ × f (Wave Speed)</div>
+        <div class="materi-scroll">
+            <div id="sec-vibration" class="materi-section">
+                <h2>A. Vibrations & Waves</h2>
+                <p><strong>Vibration</strong> is a back-and-forth motion through an equilibrium point (e.g., guitar strings, pendulums).</p>
+                <div class="formula-box">
+                    <strong>Key Parameters:</strong><br>
+                    • 1 Vibration = A → B → C → B → A<br>
+                    • <strong>Period (T):</strong> Time for 1 vibration (T = t/n) [s]<br>
+                    • <strong>Frequency (f):</strong> Vibrations per second (f = n/t) [Hz]<br>
+                    • <strong>Formula:</strong> f = 1/T atau T = 1/f
+                </div>
+                <h3>Types of Waves:</h3>
                 <ul>
-                    <li><b>Transverse Waves:</b> Vibration is perpendicular to the direction of propagation (e.g., Light waves).</li>
-                    <li><b>Longitudinal Waves:</b> Vibration is parallel to the direction of propagation (e.g., Sound waves).</li>
+                    <li><strong>Mechanical Waves:</strong> Need a medium (e.g., Sound, Water waves).</li>
+                    <li><strong>Electromagnetic Waves:</strong> Can travel in a vacuum (e.g., Light, X-rays).</li>
+                    <li><strong>Transverse:</strong> Vibration ⊥ Propagation (Up-down motion).</li>
+                    <li><strong>Longitudinal:</strong> Vibration || Propagation (Compressions & Rarefactions).</li>
                 </ul>
-            </div>
-            
-            <div id="light" class="tab-pane">
-                <h2>Properties of Light</h2>
-                <p>Light is an electromagnetic wave that can travel through a vacuum at 300,000 km/s.</p>
-                <h3>1. Reflection</h3>
-                <p>Light bouncing off a surface. Law: Angle of Incidence = Angle of Reflection.</p>
-                <h3>2. Refraction</h3>
-                <p>The bending of light as it passes from one medium to another (e.g., air to water). This is how lenses work!</p>
+                <div class="formula-box"><strong>Wave Speed Formula:</strong> v = λ × f</div>
             </div>
 
-            <div id="eye" class="tab-pane">
-                <h2>The Human Eye & Vision</h2>
-                <p>The eye focuses light on the <b>Retina</b> to form an image. When the eye can't focus perfectly, we use lenses.</p>
-                <ul>
-                    <li><b>Myopia (Nearsightedness):</b> Light focuses in front of the retina. Corrected by <b>Concave (-)</b> lenses.</li>
-                    <li><b>Hyperopia (Farsightedness):</b> Light focuses behind the retina. Corrected by <b>Convex (+)</b> lenses.</li>
-                </ul>
-                <div class="formula-box">Lens Power (D) = 1 / f (in meters)</div>
+            <hr>
+
+            <div id="sec-sound" class="materi-section">
+                <h2>B. Sound Waves</h2>
+                <p>Sound is a longitudinal mechanical wave. It cannot travel in space (vacuum)!</p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>Frequency Ranges:</strong><br>
+                        • Infrasonic: < 20 Hz<br>
+                        • Audiosonic: 20 - 20,000 Hz<br>
+                        • Ultrasonic: > 20,000 Hz
+                    </div>
+                    <div class="info-card">
+                        <strong>Characteristics:</strong><br>
+                        • Pitch depends on <strong>Frequency</strong>.<br>
+                        • Loudness depends on <strong>Amplitude</strong>.
+                    </div>
+                </div>
             </div>
 
-            <div id="sim" class="tab-pane">
-                <h2>PhET Simulation: Bending Light</h2>
-                <iframe src="https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_en.html" width="100%" height="500" allowfullscreen></iframe>
+            <hr>
+
+            <div id="sec-light" class="materi-section">
+                <h2>C. Light Properties</h2>
+                <p>Light is an electromagnetic wave ($v = 3 \times 10^8$ m/s).</p>
+                <ul>
+                    <li><strong>Straight Line:</strong> Light travels straight unless hit an object.</li>
+                    <li><strong>Reflection:</strong> Angle of incidence (i) = Angle of reflection (r).</li>
+                    <li><strong>Refraction (Bending):</strong> Happens when light moves between different optical densities (e.g., Air to Water).</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <div id="sec-eye" class="materi-section">
+                <h2>D. Human Eye & Optical Instruments</h2>
+                <div class="eye-box">
+                    <h3>The Path of Sight:</h3>
+                    <p>Cornea → Pupil → Aqueous Humor → Lens → Vitreous Humor → Retina → Optic Nerve → Brain.</p>
+                </div>
+                
+                <h3>Vision Defects:</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <strong>Myopia (Nearsighted):</strong><br>
+                        Focused in front of retina. Blurry far away. Use <strong>Concave (-)</strong> lens.
+                    </div>
+                    <div class="info-card">
+                        <strong>Hyperopia (Farsighted):</strong><br>
+                        Focused behind retina. Blurry up close. Use <strong>Convex (+)</strong> lens.
+                    </div>
+                </div>
+
+                <h3>Lens Power (Diopter):</h3>
+                <p>The strength of a lens is measured in <strong>Diopters (D)</strong>.</p>
+                <div class="formula-box">
+                    <strong>D = 1 / f</strong><br>
+                    *(Note: focal length (f) must be in <strong>meters</strong>)*
+                </div>
+            </div>
+
+            <div id="sec-phet" class="materi-section">
+                <h2>PhET Simulation</h2>
+                <iframe src="https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_all.html" width="100%" height="450" allowfullscreen></iframe>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <section id="page4" class="page">
-        <span class="back-link" onclick="navigateTo('page2')">← Back to Table of Contents</span>
-        <div class="tab-content">
-            <h2>Student Worksheet: Lens Power</h2>
-            <p><strong>Objective:</strong> Investigate how different lenses affect light and calculate their power in diopters.</p>
-            <div style="background: #fff9db; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <h4>Step-by-Step Experiment:</h4>
-                <ol style="margin-left: 20px;">
-                    <li>Focus light from a distant source through the lens onto a screen.</li>
-                    <li>Measure the <b>focal length (f)</b> in meters.</li>
-                    <li>Calculate Diopter: <b>D = 1/f</b>.</li>
-                </ol>
+        <div class="content-box">
+            <button class="btn-back" onclick="navigateTo('page2')">⇠ Back to Menu</button>
+            <h1 class="worksheet-title">🧪 STUDENT WORKSHEET: LENS POWER</h1>
+            <p style="text-align: center; font-weight: bold;">"Understanding Diopters through Investigation"</p>
+            
+            <div class="worksheet-scroll">
+                <div class="ws-card">
+                    <h3>1. Pre-Experiment Questions</h3>
+                    <p>What did you observe in the video about vision?</p>
+                    <textarea placeholder="Your observation..."></textarea>
+                    <p>How can glasses or lenses be used as vision correction?</p>
+                    <textarea placeholder="Your explanation..."></textarea>
+                </div>
+
+                <div class="ws-card">
+                    <h3>2. Designing Experiment</h3>
+                    <div class="variable-grid">
+                        <label>Independent Variable (What you change):</label>
+                        <input type="text" placeholder="e.g. Type of lens/focal length">
+                        <label>Dependent Variable (What you measure):</label>
+                        <input type="text" placeholder="e.g. Diopter value">
+                        <label>Control Variable (Keep the same):</label>
+                        <input type="text" placeholder="e.g. Light source distance">
+                    </div>
+                </div>
+
+                <div class="ws-card procedure">
+                    <h3>3. Steps to Follow</h3>
+                    <ol>
+                        <li>Hold the lens (eyeglasses) between a light source and a screen (white paper).</li>
+                        <li>Slowly move the lens back and forth until a sharp, focused spot of light appears on the screen.</li>
+                        <li>Measure the distance (in meters) from the lens to the screen (this is <strong>focal length / f</strong>).</li>
+                        <li>Calculate the Diopter using formula: <strong>D = 1 / f</strong>.</li>
+                        <li>For concave lenses (myopia), use a negative value (-).</li>
+                    </ol>
+                </div>
+
+                <div class="ws-card">
+                    <h3>4. Data Collection</h3>
+                    <table class="ws-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Lens Owner</th>
+                                <th>Doctor Recipe (D)</th>
+                                <th>Focal Length (m)</th>
+                                <th>Calculated Diopter (D)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                            <tr><td>2</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                            <tr><td>3</td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ws-card">
+                    <h3>5. Analysis & Reflection</h3>
+                    <p>What pattern do you observe between focal length and diopter value?</p>
+                    <textarea placeholder="Analysis..."></textarea>
+                    <p>Conclusion: Does your data support your hypothesis? Why?</p>
+                    <textarea placeholder="Conclusion..."></textarea>
+                </div>
             </div>
-            <table>
-                <tr><th>Lens Label</th><th>Type</th><th>Focal Length (m)</th><th>Diopter (D)</th></tr>
-                <tr><td>Sample A</td><td>Convex</td><td>0.2</td><td>+5.0</td></tr>
-                <tr><td>Sample B</td><td>Concave</td><td>0.5</td><td>-2.0</td></tr>
-            </table>
         </div>
     </section>
 
     <section id="page5" class="page">
-        <span class="back-link" onclick="navigateTo('page2')">← Back to Table of Contents</span>
-        <h1>Waves, Light & The Global Goals</h1>
-        <p style="margin-bottom: 30px;">How does physics help the world? Let's look at the Sustainable Development Goals (SDGs):</p>
-        
-        <div class="sdg-detail">
-            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-03.jpg" alt="SDG 3">
-            <div>
-                <h3>SDG 3: Good Health and Well-being</h3>
-                <p>Wave technology is the backbone of modern medicine. <b>X-rays</b> help detect bone fractures, and <b>Ultrasounds</b> (sound waves) allow doctors to see babies inside the womb or check internal organs without surgery.</p>
-            </div>
-        </div>
-
-        <div class="sdg-detail">
-            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-07.jpg" alt="SDG 7">
-            <div>
-                <h3>SDG 7: Affordable and Clean Energy</h3>
-                <p>The properties of light allow us to use <b>Solar Panels</b> (Photovoltaic cells). These cells capture electromagnetic radiation from sunlight and convert it directly into clean, renewable electricity.</p>
-            </div>
-        </div>
-
-        <div class="sdg-detail">
-            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-09.jpg" alt="SDG 9">
-            <div>
-                <h3>SDG 9: Industry, Innovation, and Infrastructure</h3>
-                <p>Radio waves and Microwaves enable <b>Global Communication</b>. Wi-Fi, 5G, and Satellite signals use waves to keep the world connected, fostering innovation in digital infrastructure.</p>
+        <div class="content-box">
+            <button class="btn-back" onclick="navigateTo('page2')">⇠ Back to Menu</button>
+            <h1>🌍 SDGs Connection</h1>
+            <div class="sdg-grid">
+                <div class="sdg-card"><strong>SDG 3:</strong> X-rays for health.</div>
+                <div class="sdg-card"><strong>SDG 7:</strong> Solar panels (clean energy).</div>
+                <div class="sdg-card"><strong>SDG 9:</strong> Wi-Fi & communication.</div>
+                <div class="sdg-card"><strong>SDG 14:</strong> Sonar for marine life.</div>
             </div>
         </div>
     </section>
 
     <section id="page6" class="page">
-        <span class="back-link" onclick="navigateTo('page2')">← Back to Table of Contents</span>
-        <div class="quiz-container">
-            <div id="quiz-header">
-                <h2>Challenge Yourself!</h2>
-                <p id="progress">Question 1 of 5</p>
+    <div class="content-box">
+        <button class="btn-back" onclick="navigateTo('page2')">⇠ Back to Menu</button>
+        <h1>🐙 Bikini Bottom Challenge</h1>
+        <p style="text-align: center;">Test your knowledge about Waves & Light!</p>
+        
+        <div id="quiz-container">
+            <div class="q-card active-q" id="q1">
+                <div class="q-header">Question 1 / 5</div>
+                <p>Which everyday example best demonstrates <strong>refraction</strong>?</p>
+                <div class="opt-grid">
+                    <button onclick="checkAnswer(1, 'C', this)">A) Reflection in a mirror</button>
+                    <button onclick="checkAnswer(1, 'C', this)">B) A shadow on the ground</button>
+                    <button onclick="checkAnswer(1, 'C', this)">C) A pencil appearing bent in water</button>
+                    <button onclick="checkAnswer(1, 'C', this)">D) Light turning off</button>
+                </div>
             </div>
-            <div id="quiz-body" style="margin-top: 20px;">
-                <p class="question" id="q-text">Loading question...</p>
-                <div class="options" id="q-options"></div>
+
+            <div class="q-card" id="q2">
+                <div class="q-header">Question 2 / 5</div>
+                <p>What is the correct order of how light enters the eye to be processed by the brain?</p>
+                <div class="opt-grid">
+                    <button onclick="checkAnswer(2, 'A', this)">A) Cornea → Pupil → Lens → Retina → Brain</button>
+                    <button onclick="checkAnswer(2, 'A', this)">B) Pupil → Lens → Cornea → Retina → Brain</button>
+                    <button onclick="checkAnswer(2, 'A', this)">C) Retina → Lens → Pupil → Cornea → Brain</button>
+                    <button onclick="checkAnswer(2, 'A', this)">D) Lens → Cornea → Retina → Pupil → Brain</button>
+                </div>
             </div>
-            <button id="next-btn" class="btn" style="display:none; margin-top:20px;" onclick="nextQuestion()">Next Question</button>
-            <div id="result-area" style="display:none; text-align:center;">
-                <h3>Quiz Completed!</h3>
+
+            <div class="q-card" id="q3">
+                <div class="q-header">Question 3 / 5</div>
+                <p>A lens has a focal length (f) of 0.5 meters. What is its power in <strong>Diopters (D)</strong>?</p>
+                <div class="opt-grid">
+                    <button onclick="checkAnswer(3, 'B', this)">A) +1.0 D</button>
+                    <button onclick="checkAnswer(3, 'B', this)">B) +2.0 D</button>
+                    <button onclick="checkAnswer(3, 'B', this)">C) +0.5 D</button>
+                    <button onclick="checkAnswer(3, 'B', this)">D) -2.0 D</button>
+                </div>
+            </div>
+
+            <div class="q-card" id="q4">
+                <div class="q-header">Question 4 / 5</div>
+                <p>Someone who can see near objects clearly but distant objects are blurry has <strong>Myopia</strong>. What lens do they need?</p>
+                <div class="opt-grid">
+                    <button onclick="checkAnswer(4, 'B', this)">A) Convex Lens (+)</button>
+                    <button onclick="checkAnswer(4, 'B', this)">B) Concave Lens (-)</button>
+                    <button onclick="checkAnswer(4, 'B', this)">C) Flat Glass</button>
+                    <button onclick="checkAnswer(4, 'B', this)">D) Magnifying Glass</button>
+                </div>
+            </div>
+
+            <div class="q-card" id="q5">
+                <div class="q-header">Question 5 / 5</div>
+                <p>Which type of wave requires a medium (like air or water) to travel and <strong>cannot</strong> travel through a vacuum?</p>
+                <div class="opt-grid">
+                    <button onclick="checkAnswer(5, 'A', this)">A) Sound Waves</button>
+                    <button onclick="checkAnswer(5, 'A', this)">B) Light Waves</button>
+                    <button onclick="checkAnswer(5, 'A', this)">C) Radio Waves</button>
+                    <button onclick="checkAnswer(5, 'A', this)">D) X-Rays</button>
+                </div>
+            </div>
+
+            <div id="quiz-result" style="display:none; text-align: center;">
+                <h2>Barnacles! Quiz Finished!</h2>
                 <p id="score-text"></p>
-                <button class="btn" onclick="startQuiz()">Restart Quiz</button>
+                <button class="btn-start" onclick="resetQuiz()">Try Again</button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="page7" class="page">
-        <span class="back-link" onclick="navigateTo('page2')">← Back to Table of Contents</span>
-        <div class="tab-content">
-            <h1>Module Summary</h1>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                <div style="background: #e3f2fd; padding: 20px; border-radius: 15px;">
-                    <h4>Waves & Light</h4>
-                    <p>Waves carry energy. Light is a special wave that travels in straight lines but can bend (refract) when hitting a lens.</p>
-                </div>
-                <div style="background: #f3e5f5; padding: 20px; border-radius: 15px;">
-                    <h4>Vision Correction</h4>
-                    <p>Lenses change how light enters the eye. Convex lenses (+) for far-sighted, Concave lenses (-) for near-sighted.</p>
-                </div>
-            </div>
-            <div style="margin-top: 30px; border-top: 2px dashed #ddd; padding-top: 20px;">
-                <p><strong>Key Concept:</strong> Science isn't just in books; it's in your glasses, your phone's Wi-Fi, and the hospital's X-ray machine!</p>
-            </div>
+        <div class="content-box">
+            <button class="btn-back" onclick="navigateTo('page2')">⇠ Back to Menu</button>
+            <h1>📝 Final Summary</h1>
+            <ul class="summary-list">
+                <li>Waves propagate energy through vibrations.</li>
+                <li>Light is an electromagnetic wave (300,000 km/s).</li>
+                <li>Lenses correct vision by bending light to focus on the retina[cite: 2].</li>
+                <li>Diopter power is the inverse of focal length in meters[cite: 2, 3].</li>
+            </ul>
+            <div class="spongebob-footer">"I'm Ready! To learn more science!"</div>
         </div>
     </section>
 
-    <script>
-        // NAVIGATION LOGIC
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0,0);
-            if(pageId === 'page6') startQuiz();
-        }
-
-        function openTab(tabId) {
-            document.querySelectorAll('.tab-pane').forEach(t => t.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-        }
-
-        // QUIZ LOGIC
-        const quizData = [
-            { q: "What is the correct order of light through the eye?", a: ["Cornea -> Pupil -> Lens -> Retina", "Lens -> Cornea -> Retina", "Retina -> Pupil -> Lens"], correct: 0 },
-            { q: "A lens has a focal length of 0.5 meters. What is its diopter power?", a: ["+1.0 D", "+2.0 D", "-2.0 D"], correct: 1 },
-            { q: "Which type of wave requires a medium (like air or water) to travel?", a: ["Light waves", "Sound waves", "X-rays"], correct: 1 },
-            { q: "What lens is used to correct Myopia (nearsightedness)?", a: ["Convex (+)", "Concave (-)", "Bifocal"], correct: 1 },
-            { q: "Which SDG is most related to using X-rays for medicine?", a: ["SDG 7 (Clean Energy)", "SDG 3 (Good Health)", "SDG 13 (Climate Action)"], correct: 1 }
-        ];
-
-        let currentQ = 0;
-        let score = 0;
-
-        function startQuiz() {
-            currentQ = 0; score = 0;
-            document.getElementById('result-area').style.display = 'none';
-            document.getElementById('quiz-body').style.display = 'block';
-            document.getElementById('quiz-header').style.display = 'block';
-            showQuestion();
-        }
-
-        function showQuestion() {
-            const data = quizData[currentQ];
-            document.getElementById('q-text').innerText = data.q;
-            document.getElementById('progress').innerText = `Question ${currentQ + 1} of ${quizData.length}`;
-            const optionsDiv = document.getElementById('q-options');
-            optionsDiv.innerHTML = '';
-            data.a.forEach((opt, i) => {
-                const btn = document.createElement('button');
-                btn.className = 'option-btn';
-                btn.innerText = opt;
-                btn.onclick = () => checkAnswer(i, btn);
-                optionsDiv.appendChild(btn);
-            });
-            document.getElementById('next-btn').style.display = 'none';
-        }
-
-        function checkAnswer(idx, btn) {
-            const btns = document.querySelectorAll('.option-btn');
-            btns.forEach(b => b.disabled = true);
-            if(idx === quizData[currentQ].correct) {
-                btn.classList.add('correct');
-                score++;
-            } else {
-                btn.classList.add('wrong');
-                btns[quizData[currentQ].correct].classList.add('correct');
-            }
-            document.getElementById('next-btn').style.display = 'block';
-        }
-
-        function nextQuestion() {
-            currentQ++;
-            if(currentQ < quizData.length) showQuestion();
-            else showResult();
-        }
-
-        function showResult() {
-            document.getElementById('quiz-body').style.display = 'none';
-            document.getElementById('quiz-header').style.display = 'none';
-            document.getElementById('next-btn').style.display = 'none';
-            document.getElementById('result-area').style.display = 'block';
-            document.getElementById('score-text').innerText = `You scored ${score} out of ${quizData.length}!`;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
