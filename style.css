@@ -282,3 +282,34 @@ button {
     .menu-grid { grid-template-columns: 1fr; }
     .avatar { width: 80px; height: 80px; }
 }
+.sdg-grid-detailed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.sdg-card-item {
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    border: 4px solid rgba(0,0,0,0.1);
+}
+
+.sdg-icon {
+    font-size: 40px;
+    font-family: 'Fredoka One';
+    opacity: 0.3;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.health { background-color: #4C9F38; } /* SDG 3 Green */
+.energy { background-color: #FDB713; } /* SDG 7 Yellow */
+.innovation { background-color: #ED6B2E; } /* SDG 9 Orange */
+.ocean { background-color: #007DBC; } /* SDG 14 Blue */
+
+.sdg-card-item h3 { margin-bottom: 10px; text-shadow: none; color: white; }
+.sdg-card-item p { font-size: 14px; line-height: 1.4; }
